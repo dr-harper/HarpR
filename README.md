@@ -1,3 +1,5 @@
+[![Travis-CI Build Status](https://travis-ci.org/mikey-harper/HarpR.svg?branch=master)](https://travis-ci.org/mikey-harper/HarpR)
+
 A repository to store and share useful code snippets.
 
 ## Installation
