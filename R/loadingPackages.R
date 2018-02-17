@@ -7,17 +7,18 @@
 #'   is not persistent (Like UoS sve). It will fail if the packages need to be
 #'   installed but there is no internet access
 #'
-#' @param packages A list of packages
+#' @param ... A list of packages
 #' @param repository The repository to load functions from. Defaults to "https://cran.ma.imperial.ac.uk/"
+#' @importFrom  utils install.packages
 #'
 #' @author Luke Blunden, \email{lsb@@soton.ac.uk} (original)
-#' @author Michael Harper \email{m.harper@@soton.ac.uk} (revised version)
+#'   Michael Harper \email{m.harper@@soton.ac.uk} (revised version)
 #' @export
 #'
-myRequiredPackages <- function(packages, repository = "https://cran.ma.imperial.ac.uk/"){
+loadRequiredPackages <- function(..., repository = "https://cran.ma.imperial.ac.uk/"){
 
   # Find if package isn't installed
-  newPackages <- packages[!(packages %in% utils::installed.packages()[,1])]
+  newPackages <- ...[!(... %in% utils::installed.packages()[,1])]
 
   # Install if required
   if (length(newPackages)){install.packages(newPackages, dependencies = TRUE)}
@@ -25,8 +26,3 @@ myRequiredPackages <- function(packages, repository = "https://cran.ma.imperial.
   # Load packages
   sapply(packages, require, character.only = TRUE)
 }
-
-
-
-
-
