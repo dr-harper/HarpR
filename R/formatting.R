@@ -27,3 +27,25 @@ outputMessage <- function(..., collapse = NULL){
 
 }
 
+
+#' Returns a percentage value of a decimal
+#'
+#' @param x the string
+#' @param digits number of decimal places
+#' @param ... arguments passed to format.
+#' @export
+#'
+percent <- function(x, digits = 0, ...) {
+  paste0(formatC(100 * x, format = "f", digits = digits, ...), "%")
+}
+
+
+#' Function deletes any symbols from the inserted dataframe
+#' @param vector an input vector
+#' @return A vector with no ASCI symbols
+#'
+deleteSymbols <- function(vector){
+  return(gsub("\\(|\\)|\\-", "", vector))
+}
+
+
