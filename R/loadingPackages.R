@@ -17,12 +17,15 @@
 #'
 loadRequiredPackages <- function(..., repository = "https://cran.ma.imperial.ac.uk/"){
 
+  packages <- c(...)
+
   # Find if package isn't installed
-  newPackages <- ...[!(... %in% utils::installed.packages()[,1])]
+  newPackages <- packages[!(packages %in% utils::installed.packages()[,1])]
 
   # Install if required
   if (length(newPackages)){install.packages(newPackages, dependencies = TRUE)}
 
   # Load packages
+  sapply(packages, require, character.only = TRUE)
   sapply(packages, require, character.only = TRUE)
 }
