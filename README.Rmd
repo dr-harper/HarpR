@@ -1,22 +1,32 @@
+---
+  output: github_document
+---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+  <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-HarpR
-=====
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-"
+)
+```
+
+# HarpR
 
 [![Travis-CI Build Status](https://travis-ci.org/mikey-harper/HarpR.svg?branch=master)](https://travis-ci.org/mikey-harper/HarpR)
 
-Overview
---------
+## Overview
 
 HarpR is a collection of general purpose functions which I have gathered and use frequently across projects.
 
-Installation
-------------
+## Installation
 
-``` r
+```{r, eval = FALSE}
 # Make sure devtools is installed to allow packages to be loaded from Github
 install.packages("devtools")
 devtools::install_github("mikey-harper/HarpR")
 library(HarpR)
 ```
+
+

@@ -23,7 +23,7 @@ loadRequiredPackages <- function(..., repository = "https://cran.ma.imperial.ac.
   newPackages <- packages[!(packages %in% utils::installed.packages()[,1])]
 
   # Install if required
-  if (length(newPackages)){install.packages(newPackages, dependencies = TRUE)}
+  if (length(newPackages)){utils::install.packages(newPackages, dependencies = TRUE)}
 
   # Load packages
   sapply(packages, require, character.only = TRUE)
