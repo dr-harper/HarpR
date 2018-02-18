@@ -4,7 +4,7 @@
 HarpR <img src="man/figures/logo.png" align="right" />
 ======================================================
 
-[![Travis-CI Build Status](https://travis-ci.org/mikey-harper/HarpR.svg?branch=master)](https://travis-ci.org/mikey-harper/HarpR)
+[![Travis-CI Build Status](https://travis-ci.org/mikey-harper/HarpR.svg?branch=master)](https://travis-ci.org/mikey-harper/HarpR) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/mikey-harper/HarpR?branch=master&svg=true)](https://ci.appveyor.com/project/mikey-harper/HarpR)
 
 Overview
 --------
