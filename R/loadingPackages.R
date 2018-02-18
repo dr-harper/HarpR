@@ -27,5 +27,4 @@ loadRequiredPackages <- function(..., repository = "https://cran.ma.imperial.ac.
 
   # Load packages
   sapply(packages, require, character.only = TRUE)
-  sapply(packages, require, character.only = TRUE)
 }
