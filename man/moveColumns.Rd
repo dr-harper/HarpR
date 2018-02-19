@@ -13,9 +13,7 @@ moveColumns(data, tomove, where = "last", ba = NULL)
 
 \item{where}{specify the location of the dataframe to be moved (either "first" or "last", "before" or "after")}
 
-\item{ba}{Specify the column name to move before or after
-
- @export}
+\item{ba}{Specify the column name to move before or after}
 }
 \description{
 For the reorganisation of dataframes, moving the position of columns or rows within a dataframe.
