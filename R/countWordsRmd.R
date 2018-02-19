@@ -6,11 +6,12 @@
 #'
 #' @param file The path to the RMarkdown document
 #'
-#' @importFrom stringi str_replace_all
+#' @importFrom stringr str_replace_all
+#' @importFrom stringr str_count
 #' @import magrittr
 #' @export
 #'
-RmdWords <- function(file) {
+countWordsRmd <- function(file) {
 
   # Creates a string of text
   file_string <- file %>%
