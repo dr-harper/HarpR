@@ -9,7 +9,7 @@
 #'
 #' @author Mikey Harper, \email{m.harper@@soton.ac.uk}
 #' @export
-
+#'
 projFilePath <- function(root , ..., fsep = .Platform$file.sep){
 
   projLoc <- findParentDirectory(root)

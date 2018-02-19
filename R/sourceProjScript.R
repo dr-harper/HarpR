@@ -9,6 +9,7 @@
 #'
 #' @author Mikey Harper, \email{m.harper@@soton.ac.uk}
 #' @export
+#'
 sourceProjScript <- function(root , ..., fsep = .Platform$file.sep){
 
   source(projFilePath(root , ..., fsep = .Platform$file.sep))

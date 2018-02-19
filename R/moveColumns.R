@@ -6,8 +6,8 @@
 #' @param tomove a list of column names to be moved
 #' @param where specify the location of the dataframe to be moved (either "first" or "last", "before" or "after")
 #' @param ba Specify the column name to move before or after
+#' @export
 #'
-#'  @export
 moveColumns <- function(data, tomove, where = "last", ba = NULL) {
 
   temp <- setdiff(names(data), tomove)

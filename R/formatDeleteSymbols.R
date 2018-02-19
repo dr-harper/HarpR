@@ -4,6 +4,6 @@
 #' @return A vector with no ASCI symbols
 #'@export
 #'
-deleteSymbols <- function(vector){
+formatDeleteSymbols <- function(vector){
   return(gsub("\\(|\\)|\\-", "", vector))
 }

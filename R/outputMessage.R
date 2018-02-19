@@ -7,6 +7,7 @@
 #'
 #' @author Mikey Harper, \email{m.harper@@soton.ac.uk}
 #' @export
+#'
 outputMessage <- function(..., collapse = NULL){
 
   writeLines(paste(..., sep = " "))

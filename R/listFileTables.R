@@ -8,6 +8,7 @@
 #' @param directory the directory to be search. Defaults to the working directory
 #' @param recursive should the function also list subdirectories? Defaults to TRUE
 #' @param ... additional arguments provided to list.files
+#' @export
 #
 listFileTables <- function(directory = getwd(), filePattern = NULL,recursive = TRUE, ...){
 
