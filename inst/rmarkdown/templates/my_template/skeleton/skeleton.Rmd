@@ -1,0 +1,30 @@
+---
+title: "Untitled"
+author: Michael Harper
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  bookdown::html_document2:
+    toc: TRUE
+    toc_float: TRUE
+    theme: flatly
+    code_folding: hide
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE)
+
+library(tidyverse)
+```
+
+## About the Document
+
+
+
+
+
+
+
+
+
+
+## Session Information
