@@ -22,5 +22,6 @@ Especially useful when running on virtual machines where package installation
 }
 \author{
 Luke Blunden, \email{lsb@soton.ac.uk} (original)
-  Michael Harper \email{m.harper@soton.ac.uk} (revised version)
+
+Michael Harper \email{m.harper@soton.ac.uk} (revised version)
 }
