@@ -8,6 +8,8 @@ loadRequiredPackagesGithub(..., quiet = FALSE)
 }
 \arguments{
 \item{...}{A list of packages}
+
+\item{quiet}{should mesages be printed (TRUE/FALSE)}
 }
 \description{
 \code{myRequiredPackagesGithub} checks whether the package is already installed.

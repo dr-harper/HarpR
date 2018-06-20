@@ -37,6 +37,7 @@ loadRequiredPackages <- function(..., repository = "https://cran.ma.imperial.ac.
 #'
 #'
 #' @param ... A list of packages
+#' @param quiet should mesages be printed (TRUE/FALSE)
 #' @importFrom  utils install.packages
 #'
 #' @author Michael Harper \email{m.harper@@soton.ac.uk}
