@@ -24,11 +24,12 @@ RmdLastKnitted <- function(directory = getwd(), recursive = TRUE){
     purrr::set_names("RMD", "Updated", "noExt")
 
   # List the HTML files
-  filesHtml <- base::list.files(getwd(), recursive = TRUE, pattern = "*.pdf|*.html|*.docx") %>%
+  filesHtml <- base::list.files(getwd(), recursive = TRUE, pattern = "*.pdf|*.html|*.docx|*.md") %>%
     base::file.info() %>%
     tibble::rownames_to_column("compiled") %>%
     dplyr::mutate(noExt = tools::file_path_sans_ext(compiled),
                   ext = tools::file_ext(compiled)) %>%
+    dplyr::filter(ext != "Rmd") %>%
     dplyr:: select(c(compiled, mtime, noExt, ext)) %>%
     purrr::set_names("Output", "Compiled", "noExt", "Extension")
 
@@ -59,11 +60,13 @@ RmdLastKnitted <- function(directory = getwd(), recursive = TRUE){
 #' @param recursive should the search include subdirectories?
 #' @param firstKnit should the function compile files if they have not be knitted before? Default is FALSE
 #' @param minAge the minimum time difference between the updated R Markdown and the HTML.
+#' @param quiet should the R Markdown print pandoc messages
 #'
+#' @importFrom magrittr %>%
 #' @export
 #' @author Michael Harper
 #'
-RmdUpdateOutputs <- function(directory = getwd(), recursive = TRUE, firstKnit = FALSE, minAge = 0){
+RmdUpdateOutputs <- function(directory = getwd(), recursive = TRUE, firstKnit = FALSE, minAge = 0, quiet = TRUE){
 
   RmdFiles <- RmdLastKnitted() %>%
     dplyr::filter(LastUpdated > minAge)
@@ -82,7 +85,7 @@ RmdUpdateOutputs <- function(directory = getwd(), recursive = TRUE, firstKnit = 
     message(i,"/",nrow(RmdFiles), "\nRecompiling ", RmdFiles$RMD[i], "\n",
             "Time difference between RMD and compiled documents: ", RmdFiles$LastUpdated[i], " days")
 
-    suppressMessages(rmarkdown::render(RmdFiles$RMD[i], "all", envir = new.env(), clean = TRUE, quiet = TRUE))
+    suppressMessages(rmarkdown::render(RmdFiles$RMD[i], "all", envir = new.env(), clean = TRUE, quiet = quiet))
     message("Complete.\n-------------------")
   }
 

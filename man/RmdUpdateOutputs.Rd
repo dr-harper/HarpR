@@ -5,7 +5,7 @@
 \title{Updates R Markdown output files}
 \usage{
 RmdUpdateOutputs(directory = getwd(), recursive = TRUE, firstKnit = FALSE,
-  minAge = 0)
+  minAge = 0, quiet = TRUE)
 }
 \arguments{
 \item{directory}{the directory to search for the files. Defaults to the working directory}
@@ -15,6 +15,8 @@ RmdUpdateOutputs(directory = getwd(), recursive = TRUE, firstKnit = FALSE,
 \item{firstKnit}{should the function compile files if they have not be knitted before? Default is FALSE}
 
 \item{minAge}{the minimum time difference between the updated R Markdown and the HTML.}
+
+\item{quiet}{should the R Markdown print pandoc messages}
 }
 \description{
 Checks the age of R Markdown files and their respective outputs, and will update
