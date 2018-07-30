@@ -16,7 +16,7 @@ if(getRversion() >= "2.15.1")  utils::globalVariables(c("."))
 RmdLastKnitted <- function(directory = getwd(), recursive = TRUE){
 
   # Extract all the R Markdown files
-  files <- base::list.files(directory, recursive = recursive, pattern = "*.Rmd") %>%
+  files <- base::list.files(directory, recursive = recursive, pattern = "*.Rmd", full.names = TRUE) %>%
     base::file.info() %>%
     tibble::rownames_to_column("rmdFile") %>%
     dplyr::mutate(noExt = tools::file_path_sans_ext(rmdFile)) %>%
@@ -24,7 +24,7 @@ RmdLastKnitted <- function(directory = getwd(), recursive = TRUE){
     purrr::set_names("RMD", "Updated", "noExt")
 
   # List the HTML files
-  filesHtml <- base::list.files(getwd(), recursive = TRUE, pattern = "*.pdf|*.html|*.docx|*.md") %>%
+  filesHtml <- base::list.files(getwd(), recursive = TRUE, pattern = "*.pdf|*.html|*.docx|*.md", full.names = TRUE) %>%
     base::file.info() %>%
     tibble::rownames_to_column("compiled") %>%
     dplyr::mutate(noExt = tools::file_path_sans_ext(compiled),
@@ -40,7 +40,7 @@ RmdLastKnitted <- function(directory = getwd(), recursive = TRUE){
     dplyr::select(-c(noExt)) %>%
     dplyr::mutate(LastUpdated =
                     difftime(Updated, Compiled, units = "days") %>%
-                    round(0)) %>%
+                    round(1)) %>%
     dplyr::arrange(-LastUpdated) %>%
     dplyr::select(c(RMD, LastUpdated, Extension))
 
@@ -68,7 +68,7 @@ RmdLastKnitted <- function(directory = getwd(), recursive = TRUE){
 #'
 RmdUpdateOutputs <- function(directory = getwd(), recursive = TRUE, firstKnit = FALSE, minAge = 0, quiet = TRUE){
 
-  RmdFiles <- RmdLastKnitted() %>%
+  RmdFiles <- RmdLastKnitted(directory = directory, recursive = recursive) %>%
     dplyr::filter(LastUpdated > minAge)
 
   if(!isTRUE(firstKnit)){
@@ -76,6 +76,8 @@ RmdUpdateOutputs <- function(directory = getwd(), recursive = TRUE, firstKnit = 
       dplyr::filter(!is.na(LastUpdated))
 
   }
+
+  if(nrow(RmdFiles) == 0) return(message("No Files to Update"))
 
   message(nrow(RmdFiles), " to be recompiled.\n-------------------")
 
