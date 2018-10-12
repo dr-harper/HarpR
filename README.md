@@ -17,7 +17,7 @@ Installation
 ``` r
 # Make sure devtools is installed to allow packages to be loaded from Github
 install.packages("devtools")
-devtools::install_github("mikey-harper/HarpR")
+devtools::install_github("dr-harper/HarpR")
 library(HarpR)
 ```
 
