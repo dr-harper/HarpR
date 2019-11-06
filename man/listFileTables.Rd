@@ -4,8 +4,8 @@
 \alias{listFileTables}
 \title{Create a summary table of files within a directory}
 \usage{
-listFileTables(directory = getwd(), filePattern = NULL, recursive = TRUE,
-  ...)
+listFileTables(directory = getwd(), filePattern = NULL,
+  recursive = TRUE, ...)
 }
 \arguments{
 \item{directory}{the directory to be search. Defaults to the working directory}

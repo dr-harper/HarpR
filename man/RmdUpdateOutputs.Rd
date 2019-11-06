@@ -4,8 +4,8 @@
 \alias{RmdUpdateOutputs}
 \title{Updates R Markdown output files}
 \usage{
-RmdUpdateOutputs(directory = getwd(), recursive = TRUE, firstKnit = FALSE,
-  minAge = 0, quiet = TRUE)
+RmdUpdateOutputs(directory = getwd(), recursive = TRUE,
+  firstKnit = FALSE, minAge = 0, quiet = TRUE)
 }
 \arguments{
 \item{directory}{the directory to search for the files. Defaults to the working directory}
